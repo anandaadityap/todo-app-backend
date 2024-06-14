@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/fiber/v2/middleware/cors"
-	"github.com/spf13/viper"
 	"log"
 	"todo-app/config"
 	"todo-app/routes"
+
+	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
+	"github.com/spf13/viper"
 )
 
 func main() {
@@ -17,7 +18,7 @@ func main() {
 	frontend := viper.GetString("FRONTEND_URL")
 	app.Use(cors.New(cors.Config{
 
-		AllowOrigins: fmt.Sprintf("http://localhost:3000, http://127.0.0.1:8000 ,%v", frontend),
+		AllowOrigins: fmt.Sprintf("http://localhost:3000, http://127.0.0.1:8000, http://localhost:5173/ ,%v", frontend),
 		AllowHeaders: "Origin, Content-Type, Accept",
 	}))
 
